@@ -25,14 +25,14 @@ public class FavoriteTest extends BaseTest {
     }
 
     @Test(description = "Try to delete wo selection", priority = 1)
-    public void deleteWoSelection(){
+    public void deleteWoSelection() {
         favoritesPage.refreshPage();
         favoritesPage.clickDeleteButton();
         favoritesPage.checkPickWarningMessage("Lütfen favorilerinizden çıkartmak istediğiniz restoranı seçiniz.");
         favoritesPage.clickOk();
     }
 
-    @Test(description = "Delete Favorite", priority = 2 )
+    @Test(description = "Delete Favorite", priority = 2)
     public void deleteFavorite() {
         favoritesPage.refreshPage();
         favoritesPage.pickRestaurant();
@@ -41,22 +41,4 @@ public class FavoriteTest extends BaseTest {
         favoritesPage.checkNoFavoritesMessage("Henüz favori restoranınız bulunmamaktadır.");
     }
 
-
-/*
-    @Test(description = "Add Multiple Favorite", priority = 2)
-    public void addMultipleFavorite() {
-        favoritesPage.listRestaurants();
-        favoritesPage.selectRestaurant("1");
-        favoritesPage.clickAddFavorites();
-        favoritesPage.navigateBack();
-        favoritesPage.selectRestaurant("2");
-        favoritesPage.clickAddFavorites();
-        favoritesPage.checkMyFavoritesList();
-    }
-
-    @Test(description = "Delete Multiple Favorite", priority = 3)
-    public void deleteMultipleFavorite() {
-
-    }
-*/
 }

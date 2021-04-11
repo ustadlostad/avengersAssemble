@@ -25,7 +25,8 @@ Report file need to be opened with a browser.
 
 ## Before Run
 
-Tests are running cross browser by default. If it needs to be switch parallel run, testN.xml file needs to be rearranged.
+Tests are running cross browser by default. If it needs to be switch parallel run, testN.xml file needs to be
+rearranged.
 
 parallel="tests" thread-count="2" states need to be added in the testNG.xml file.
 

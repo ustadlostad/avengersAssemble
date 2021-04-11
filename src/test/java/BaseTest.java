@@ -6,10 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-import org.testng.Reporter;
 import org.testng.annotations.*;
 import page.FavoritesPage;
 import page.LoginPage;
@@ -72,7 +70,7 @@ public class BaseTest {
             try {
                 TakesScreenshot screenshot = (TakesScreenshot) driver;
                 File src = screenshot.getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(src, new File("C:\\Users\\batur\\IdeaProjects\\avengersAssemble\\Fails\\" + result.getName() + " + " +random+ ".png"));
+                FileUtils.copyFile(src, new File("C:\\Users\\batur\\IdeaProjects\\avengersAssemble\\Fails\\" + result.getName() + " + " + random + ".png"));
                 System.out.println("Successfully captured a screenshot");
             } catch (Exception e) {
                 System.out.println("Exception while taking screenshot " + e.getMessage());

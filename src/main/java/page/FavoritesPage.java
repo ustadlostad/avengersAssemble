@@ -6,17 +6,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class FavoritesPage extends Page{
+public class FavoritesPage extends Page {
 
     public FavoritesPage(WebDriver driver, WebDriverWait wait, Actions actions) {
         super(driver, wait, actions);
     }
 
-    //private String restaurant_xpath = "(//div[@class = 'ys-reslist-items']//div[@class = 'restaurant-display-name']//a)[1]"
-
     String restaurantName;
 
-    private By addressArea_xpath =By.xpath("//span[@class='address-area']");
+    private By addressArea_xpath = By.xpath("//span[@class='address-area']");
     private By restaurantNameAtFavorites_xpath = By.xpath("//a[@class = 'restaurant-name ys-l']/span/b");
     private By addFavorite_btn = By.xpath("(//div[@class = 'social_action']//b)[1]");
     private By removeFavorite_btn = By.xpath("(//div[@class = 'social_action']//b)[1]");
@@ -32,66 +30,61 @@ public class FavoritesPage extends Page{
     private By noSelectionWarning = By.xpath("//span/strong");
     private By noSelectionConfirm_btn = By.xpath("//button[@class = 'btn confirmButton ys-btn ys-btn-default']");
 
-    private By restaurantSelection(String number){
-        return By.xpath("(//div[@class = 'ys-reslist-items']//div[@class = 'restaurant-display-name']//a)["+number+"]");
+    private By restaurantSelection(String number) {
+        return By.xpath("(//div[@class = 'ys-reslist-items']//div[@class = 'restaurant-display-name']//a)[" + number + "]");
     }
-    private By restaurantName(String number){//span
-        return By.xpath("(//div[@class = 'ys-reslist-items']//div[@class = 'restaurant-display-name']//a)["+number+"]");
+
+    private By restaurantName(String number) {//span
+        return By.xpath("(//div[@class = 'ys-reslist-items']//div[@class = 'restaurant-display-name']//a)[" + number + "]");
     }
-    private String restaurantNameAtFavorites(){
+
+    private String restaurantNameAtFavorites() {
         return getText(restaurantNameAtFavorites_xpath);
     }
 
 
-
-
-
-    public void listRestaurants(){
-        //click(popUp);
+    public void listRestaurants() {
         click(addressArea_xpath);
     }
 
-    public void selectRestaurant(String restaurantNumber){
+    public void selectRestaurant(String restaurantNumber) {
         restaurantName = getText(restaurantName(restaurantNumber));
         click(restaurantSelection(restaurantNumber));
     }
 
-    public void clickAddFavorites(){
-        //click(closedWarning);
+    public void clickAddFavorites() {
         click(addFavorite_btn);
     }
 
-    public void checkMyFavoritesList(){
+    public void checkMyFavoritesList() {
         click(userInfo);
         click(myFavorites_btn);
-        Assert.assertEquals(restaurantName,restaurantNameAtFavorites());
+        Assert.assertEquals(restaurantName, restaurantNameAtFavorites());
     }
 
-    public void pickRestaurant(){
+    public void pickRestaurant() {
         click(checkBox);
     }
 
-    public void clickDeleteButton(){
+    public void clickDeleteButton() {
         click(delete_btn);
     }
 
-    public void checkNoFavoritesMessage(String message){
-        Assert.assertEquals(getText(warningXpath),message);
+    public void checkNoFavoritesMessage(String message) {
+        Assert.assertEquals(getText(warningXpath), message);
     }
 
-    public void closeAfterLoginPopup(){
+    public void closeAfterLoginPopup() {
         click(afterLoginPopup);
     }
 
-    public void checkPickWarningMessage(String message){
-        Assert.assertEquals(getText(noSelectionWarning),message);
+    public void checkPickWarningMessage(String message) {
+        Assert.assertEquals(getText(noSelectionWarning), message);
     }
 
-    public void clickOk(){
+    public void clickOk() {
         click(noSelectionConfirm_btn);
     }
-
-
 
 
 }
