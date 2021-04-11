@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="sepetTest" parallel="tests" thread-count="2">
+
+     <test name="LoginTestChrome">
+         <parameter name="Browser" value="ch"/>
+         <classes>
+             <class name="LoginTest"/>
+         </classes>
+     </test>
+
+    <test name="FavoriTestChrome">
+        <parameter name="Browser" value="ch"/>
+        <classes>
+            <class name="FavoriteTest"/>
+        </classes>
+    </test>
+
+   <test name="LoginTestFirefox">
+         <parameter name="Browser" value="ff"/>
+         <classes>
+             <class name="LoginTest"/>
+         </classes>
+     </test>
+
+    <test name="FavoriTestFirefox">
+        <parameter name="Browser" value="ff"/>
+        <classes>
+            <class name="FavoriteTest"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="listeners.TestListener" />
+    </listeners>
+
+</suite>
