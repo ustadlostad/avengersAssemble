@@ -17,15 +17,11 @@ public class FavoritesPage extends Page {
     private By addressArea_xpath = By.xpath("//span[@class='address-area']");
     private By restaurantNameAtFavorites_xpath = By.xpath("//a[@class = 'restaurant-name ys-l']/span/b");
     private By addFavorite_btn = By.xpath("(//div[@class = 'social_action']//b)[1]");
-    private By removeFavorite_btn = By.xpath("(//div[@class = 'social_action']//b)[1]");
     private By userInfo = By.id("user-info");
     private By myFavorites_btn = By.xpath("//a[text()='Favorilerim']");
-    private By popUp = By.xpath("//button[@class='modal-header-close']");
     private By checkBox = By.xpath("//input[@type = 'checkbox']");
     private By delete_btn = By.xpath("//button[@type = 'submit']");
     private By warningXpath = By.xpath("//p[text()='Henüz favori restoranınız bulunmamaktadır.']");
-    private By closedWarning = By.xpath("//div[@id='ui-id-1']//div[@class = 'close-alternative-popup']");
-    private By random = By.xpath("//div[@class='ui-widget-overlay ui-front']");
     private By afterLoginPopup = By.xpath("//button[@class = 'modal-header-close']");
     private By noSelectionWarning = By.xpath("//span/strong");
     private By noSelectionConfirm_btn = By.xpath("//button[@class = 'btn confirmButton ys-btn ys-btn-default']");
@@ -42,7 +38,6 @@ public class FavoritesPage extends Page {
         return getText(restaurantNameAtFavorites_xpath);
     }
 
-
     public void listRestaurants() {
         click(addressArea_xpath);
     }
@@ -57,6 +52,7 @@ public class FavoritesPage extends Page {
     }
 
     public void checkMyFavoritesList() {
+        refreshPage();
         click(userInfo);
         click(myFavorites_btn);
         Assert.assertEquals(restaurantName, restaurantNameAtFavorites());

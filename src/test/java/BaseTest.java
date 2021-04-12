@@ -38,17 +38,17 @@ public class BaseTest {
         if (Browser.equalsIgnoreCase("ch")) {
 
             driver = new ChromeDriver();
-            wait = new WebDriverWait(driver, 5);
+            wait = new WebDriverWait(driver, 15);
             driver.manage().window().maximize();
             actions = new Actions(driver);
         } else if (Browser.equalsIgnoreCase("ff")) {
             driver = new FirefoxDriver();
-            wait = new WebDriverWait(driver, 5);
+            wait = new WebDriverWait(driver, 15);
             driver.manage().window().maximize();
             actions = new Actions(driver);
         } else if (Browser.equalsIgnoreCase("ie")) {
             driver = new InternetExplorerDriver();
-            wait = new WebDriverWait(driver, 5);
+            wait = new WebDriverWait(driver, 15);
             driver.manage().window().maximize();
             actions = new Actions(driver);
         }

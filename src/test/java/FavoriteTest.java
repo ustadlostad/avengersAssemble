@@ -1,6 +1,15 @@
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
+
 public class FavoriteTest extends BaseTest {
+
+    public String random() {
+        Random rand = new Random();
+        int rand_int = rand.nextInt(5);
+        return Integer.toString(rand_int);
+    }
 
     public void login() {
         loginPage.goToLoginPage("https://www.yemeksepeti.com/istanbul");
@@ -17,16 +26,14 @@ public class FavoriteTest extends BaseTest {
         login();
         favoritesPage.closeAfterLoginPopup();
         favoritesPage.listRestaurants();
-        favoritesPage.selectRestaurant("1");
+        favoritesPage.selectRestaurant(random());
         favoritesPage.clickAddFavorites();
-        favoritesPage.refreshPage();
         favoritesPage.checkMyFavoritesList();
 
     }
 
     @Test(description = "Try to delete wo selection", priority = 1)
     public void deleteWoSelection() {
-        favoritesPage.refreshPage();
         favoritesPage.clickDeleteButton();
         favoritesPage.checkPickWarningMessage("Lütfen favorilerinizden çıkartmak istediğiniz restoranı seçiniz.");
         favoritesPage.clickOk();
@@ -37,7 +44,6 @@ public class FavoriteTest extends BaseTest {
         favoritesPage.refreshPage();
         favoritesPage.pickRestaurant();
         favoritesPage.clickDeleteButton();
-        favoritesPage.refreshPage();
         favoritesPage.checkNoFavoritesMessage("Henüz favori restoranınız bulunmamaktadır.");
     }
 
