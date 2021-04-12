@@ -23,6 +23,8 @@ projectFolderLocation\test-results\extent.html
 
 Report file need to be opened with a browser.
 
+Failed test screenshots will be available project's Fails folder.
+
 ## Before Run
 
 Tests are running cross browser by default. If it needs to be switch parallel run, testN.xml file needs to be
