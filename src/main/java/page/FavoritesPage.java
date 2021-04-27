@@ -48,6 +48,7 @@ public class FavoritesPage extends Page {
     }
 
     public void clickAddFavorites() {
+        refreshPage();
         click(addFavorite_btn);
     }
 

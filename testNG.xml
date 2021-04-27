@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name="FavoriTestChrome">
+    <!--<test name="FavoriTestChrome">
         <parameter name="Browser" value="ch"/>
         <classes>
             <class name="FavoriteTest"/>
@@ -28,7 +28,7 @@
         <classes>
             <class name="FavoriteTest"/>
         </classes>
-    </test>
+    </test>-->
 
     <listeners>
         <listener class-name="listeners.TestListener"/>

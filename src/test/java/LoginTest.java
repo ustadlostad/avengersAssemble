@@ -1,3 +1,4 @@
+import listeners.RetryAnalyzer;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -10,21 +11,27 @@ public class LoginTest extends BaseTest {
         data[0][0] = "baturqa";
         data[0][1] = "asas";
         data[0][2] = "hard";
+
         data[1][0] = "baturqa@hotmail.com";
         data[1][1] = "fsdfsdf";
         data[1][2] = "hard";
+
         data[2][0] = "fsdfsdf";
         data[2][1] = "12345asdfg";
         data[2][2] = "hard";
+
         data[3][0] = "";
         data[3][1] = "12345asdfg";
         data[3][2] = "soft1";
+
         data[4][0] = "asdfsdf";
         data[4][1] = "";
         data[4][2] = "soft2";
+
         data[5][0] = "";
         data[5][1] = "";
         data[5][2] = "soft3";
+
         data[6][0] = "baturqa@hotmail.com";
         data[6][1] = "12345asdfg";
         data[6][2] = "done";
@@ -32,7 +39,7 @@ public class LoginTest extends BaseTest {
         return data;
     }
 
-    @Test(description = "LoginTest", priority = 0, dataProvider = "provideLogInData")
+    @Test(description = "LoginTest", priority = 0, dataProvider = "provideLogInData", retryAnalyzer = RetryAnalyzer.class)
     public void login(String userName, String password, String flag) {
         loginPage.goToLoginPage("https://www.yemeksepeti.com/istanbul");
         loginPage.checkLoginFormVisibility();
